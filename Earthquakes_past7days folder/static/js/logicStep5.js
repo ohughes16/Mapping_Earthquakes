@@ -100,10 +100,10 @@ function getColor(magnitude) {
   let legend = L.control({
       position: "bottomright"
   });
-  legend.onAdd = function () {
 
+  legend.onAdd = function () {
     let div = L.DomUtil.create('div', 'info legend');
-  };
+
 const magnitudes = [0, 1, 2, 3, 4, 5];
 const colors = [
             "#98ee00",
@@ -111,7 +111,8 @@ const colors = [
             "#eecc00",
             "#ee9c00",
             "#ea822c",
-            "#ea2c2c"];
+            "#ea2c2c"
+        ];
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < magnitudes.length; i++) {
@@ -120,10 +121,11 @@ const colors = [
             '<i style="background:' + colors[i] + '"></i> ' +
             magnitudes[i] + (magnitudes[i + 1] ? '&ndash;' + magnitudes[i + 1] + '<br>' : '+');
     }
-
     return div;
+};
 
 legend.addTo(map);
-  //Then we add the earthquakes layer to our map.
-  earthquakes.addTo(map);
-  });
+
+//Then we add the earthquakes layer to our map.
+earthquakes.addTo(map);
+});
